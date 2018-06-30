@@ -10,15 +10,11 @@ trait EmployeeRepository extends EmployeeTable {
   import profile.api._
 
 
-  def insert(employee: Employee): Future[Int] =
+  def create(employee: Employee): Future[Int] =
     db.run {
       empTableQueryInc += employee
     }
 
-  def insertAll(employees: List[Employee]): Future[Seq[Int]] =
-    db.run {
-      empTableQueryInc ++= employees
-    }
 
   def update(employee: Employee): Future[Int] =
     db.run {
@@ -41,7 +37,7 @@ trait EmployeeRepository extends EmployeeTable {
     }
 
   def ddl =
-    empTableQuery.schema
+    db.run(empTableQuery.schema.create)
 
 }
 
