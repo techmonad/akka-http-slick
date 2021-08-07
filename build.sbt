@@ -2,20 +2,25 @@ name := "akka-http-slick-spray-json"
 
 version := "0.1"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.13.6"
+
+val AkkaVersion = "2.6.8"
+val AkkaHttpVersion = "10.2.6"
+val SlickVersion = "3.3.3"
 
 
 libraryDependencies ++= Seq(
-  "mysql" % "mysql-connector-java" % "5.1.36",
-  "com.typesafe.akka" %% "akka-http" % "10.1.3",
-  "com.typesafe.akka" %% "akka-stream" % "2.5.13",
-  "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.3",
-  "com.typesafe.slick" %% "slick" % "3.2.3",
-  "com.typesafe.slick" %% "slick-hikaricp" % "3.2.3",
-  "ch.qos.logback" % "logback-classic" % "1.1.3",
-  "com.h2database" % "h2" % "1.4.187",
-  "org.scalatest" %% "scalatest" % "3.0.5" % Test,
-  "com.typesafe.akka" %% "akka-http-testkit" % "10.1.3" % Test
+  "mysql" % "mysql-connector-java" % "8.0.26",
+  "com.typesafe.akka" %% "akka-actor-typed" % AkkaVersion,
+  "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
+  "com.typesafe.akka" %% "akka-http" % AkkaHttpVersion,
+  "com.typesafe.slick" %% "slick" % SlickVersion,
+  "com.typesafe.slick" %% "slick-hikaricp" % SlickVersion,
+  "org.json4s" %% "json4s-native" % "4.0.3",
+  "ch.qos.logback" % "logback-classic" % "1.2.5" ,
+  "com.h2database" % "h2" % "1.4.200",
+  "org.scalatest" %% "scalatest" % "3.2.9" % Test,
+  "com.typesafe.akka" %% "akka-http-testkit" % AkkaHttpVersion % Test
 )
 
 

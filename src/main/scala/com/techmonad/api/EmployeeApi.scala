@@ -1,31 +1,29 @@
-package com.techmonad.http
+package com.techmonad.api
 
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
-import com.techmonad.repository.{Employee, EmployeeRepository}
-import com.techmonad.util.JsonUtil._
+import com.techmonad.service.EmployeeService
 
 import scala.concurrent.ExecutionContext
 
 
-trait Routes {
+trait EmployeeApi {
 
 
   implicit val ec: ExecutionContext
-
-  val empRepository:EmployeeRepository
+  val employeeService: EmployeeService
 
   val routes: Route =
     pathPrefix("api" / "employee") {
       (path("create") & post) {
-        entity(as[Employee]) { employee =>
+        entity(as[String]) { employee =>
           complete {
-            empRepository.create(employee).map { id => s"Employee created successfully[id: $id]" }
+            employeeService.create(employee)
           }
         }
       } ~ (path("list") & get) {
         complete {
-          empRepository.getAll()
+          employeeService.getAll()
         }
       }
 
