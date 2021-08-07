@@ -3,8 +3,8 @@
 
 
 #### Clone Project:
-    $ git clone git@github.com:techmonad/akka-http-slick-spray-json.git
-    $ cd akka-http-slick-spray-json
+    $ git clone git@github.com:techmonad/akka-http-slick.git
+    $ cd akka-http-slick
 
 
 #### Compile & run unit test:
