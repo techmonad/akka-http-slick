@@ -1,4 +1,4 @@
-# akka-http-slick-spray-json
+# akka-http-slick
 
 
 
