@@ -1,4 +1,4 @@
-name := "akka-http-slick-spray-json"
+name := "akka-http-slick"
 
 version := "0.1"
 
